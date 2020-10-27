@@ -1,3 +1,3 @@
-def scaner(cor,peca,posicao):
+def scaner(posicao):
     if cor==1:
-        
+
