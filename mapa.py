@@ -1,7 +1,9 @@
 import sys
 from os import path
-from pecas import piao
-from Main import lista2
+from scaner import *
+from pecas import *
+lista2=[['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  '], ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  '], ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  '], ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  '], ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  '], ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  '], ['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  '],
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']]
 dicionario_pos={}
 
 class tab:
@@ -13,6 +15,7 @@ class tab:
         
     def atualiza_tabuleiro(self,pos):
         if len(pos)==4:
+            
             if dicionario_pos[pos[0:2]][0].verifica_mov(pos)==True:
                 self.ta[scaner(pos)[0]][scaner(pos)[1]]="  "
                 self.ta[scaner(pos)[2]][scaner(pos)[3]]=dicionario_pos[pos[0:2]][1]
@@ -25,24 +28,22 @@ class tab:
         if len(pos)==2:
             self.ta[scaner(pos)[0]][scaner(pos)[1]]=dicionario_pos[pos[0:2]][1]
             
-tabuleiro=tab()  
+class piao():
+    def __init__(self,cor,inicial):
+        global dicionario_pos
+        self.cor=cor
+        dicionario_pos[inicial]=(self,f"p{self.cor}")
+        self.posicionamento(inicial)
+    def posicionamento(self,posicao):
+        global tabuleiro
+        tabuleiro.atualiza_tabuleiro(posicao)
+    def verifica_mov(self,pos):
+        if int(pos[3])==int(pos[1])+1:
+            return True
+        else:
+            print("esse movimento é ilegal")
+            return False
+tabuleiro=tab() 
 
 
 
-
-for i in range(8):
-    pioes=piao("b",f"{chr(65+i)}2")
-    pioes=piao("p",f"{chr(65+i)}7")
-
-
-game=True
-tabuleiro.printar_tabuleiro()
-while game==True:
-    jogar=input("s ou n ")
-    if jogar=="s":
-        movi=str(input("movimento")).upper()
-        identifica=movi[0:2]
-        
-        tabuleiro.atualiza_tabuleiro(movi)
-    else:
-        game=False
