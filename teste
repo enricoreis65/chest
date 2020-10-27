@@ -1,0 +1,49 @@
+class piao:
+    def __init__(self,cor,posicaox,posicaoy):
+        self.posicaox=posicaox
+        self.posicaoy=posicaoy
+        self.rodada=0
+        self.cor=cor
+        ta[self.posicaox][self.posicaoy]="p1{0}".format(self.cor)
+    def selecao(self):
+        if self.rodada==0:
+            ta[self.posicaox+1][self.posicaoy]=("X1")
+            ta[self.posicaox+2][self.posicaoy]=("X2")
+            print(*ta ,sep = "\n")
+            print(*".",sep="\n")
+            opcao=input("1 ou 2? ")
+            if opcao=="1":
+                ta[self.posicaox+1][self.posicaoy]=("0")
+                ta[self.posicaox+2][self.posicaoy]=("0")
+                ta[self.posicaox][self.posicaoy]=0
+                self.posicaox=self.posicaox+1
+                ta[self.posicaox][self.posicaoy]="p1{0}".format(self.cor)
+                self.rodada+=1
+            if opcao=="2":
+                ta[self.posicaox+1][self.posicaoy]=("0")
+                ta[self.posicaox+2][self.posicaoy]=("0")
+                ta[self.posicaox][self.posicaoy]=0
+                self.posicaox=self.posicaox+2
+                ta[self.posicaox][self.posicaoy]="p1{0}".format(self.cor)
+                self.rodada+=1
+                
+
+
+import numpy as np
+jogando=True
+rodadas=0
+ta=np.zeros((8,8))
+ta=ta.tolist()
+cor="branco"
+piao1= piao("B",1,0)
+while jogando==True:
+    print(*ta ,sep = "\n")
+    print(*".",sep="\n")
+    quer_jogar=input("quer jogar")
+    if quer_jogar=="s":
+        piao1.selecao()
+        
+        quer_jogar="-"
+    else:
+        jogando=False
+    
