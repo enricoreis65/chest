@@ -1,16 +1,22 @@
+import sys
+import numpy as np
 from os import path
 from scaner import *
-from tabuleiro import *
+from pecas import *
+from Main import lista2
 
-class piao():
+class piao:
     def __init__(self,cor,inicial):
+        global dicionario_pos
         self.cor=cor
-        self.inicialx=scaner(inicial)[0]
-        self.inicialy=scaner(inicial)[1]
-        
+        dicionario_pos[inicial]=(self,f"p{self.cor}")
+        self.posicionamento(inicial)
     def posicionamento(self,posicao):
         global tabuleiro
-        tabuleiro.atualiza_tabuleiro(posicao,self)
-
-
-
+        tabuleiro.atualiza_tabuleiro(posicao)
+    def verifica_mov(self,pos):
+        if int(pos[3])==int(pos[1])+1:
+            return True
+        else:
+            print("esse movimento é ilegal")
+            return False
