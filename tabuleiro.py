@@ -18,4 +18,4 @@ class tabuleiro:
 tabuleiro=tabuleiro()
 
 piao1=piao("b","D2")
-piao1.posicionamento(tabuleiro,"D2")
+piao1.posicionamento("D2")

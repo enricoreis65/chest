@@ -1,5 +1,5 @@
 from os import path
-import sys
+
 import scaner
 from tabuleiro import *
 
@@ -9,7 +9,7 @@ class piao:
         self.inicialx=scaner(inicial)[0]
         self.inicialy=scaner(inicial)[1]
         
-    def posicionamento(self,tabuleiro,posicao):
+    def posicionamento(self,posicao):
         tabuleiro.atualiza_tabuleiro(posicao,self)
 
 
