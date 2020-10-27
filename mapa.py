@@ -20,7 +20,7 @@ class tab:
                 self.ta[scaner(pos)[0]][scaner(pos)[1]]="  "
                 self.ta[scaner(pos)[2]][scaner(pos)[3]]=dicionario_pos[pos[0:2]][1]
             
-                dicionario_pos[pos[2:4]]=dicionario_pos[pos[0:2]][1]
+                dicionario_pos[pos[2:4]]=dicionario_pos[pos[0:2]]
                 dicionario_pos[pos[0:2]]='  '
                 self.printar_tabuleiro()
             else:
