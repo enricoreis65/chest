@@ -41,8 +41,10 @@ class piao:
 dicionario_pos={}
 
 tabuleiro=tabuleiro()
-piao2=piao("b","B2")
-piao1=piao("b","D2")
+for i in range(8):
+    pioes=piao("b",f"{chr(65+i)}2")
+    pioes=piao("p",f"{chr(65+i)}7")
+
 
 game=True
 tabuleiro.printar_tabuleiro()
