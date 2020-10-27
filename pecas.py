@@ -1,11 +1,7 @@
-import sys
-import numpy as np
 from os import path
-from scaner import *
-from pecas import *
-from Main import lista2
+from mapa import dicionario_pos,tabuleiro
 
-class piao:
+class piao():
     def __init__(self,cor,inicial):
         global dicionario_pos
         self.cor=cor

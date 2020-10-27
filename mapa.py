@@ -1,11 +1,10 @@
 import sys
-import numpy as np
 from os import path
-from scaner import *
-from pecas import *
+from pecas import piao
 from Main import lista2
 dicionario_pos={}
-class tabuleiro:
+
+class tab:
     def __init__(self):
         
         self.ta=lista2
@@ -26,7 +25,8 @@ class tabuleiro:
         if len(pos)==2:
             self.ta[scaner(pos)[0]][scaner(pos)[1]]=dicionario_pos[pos[0:2]][1]
             
-tabuleiro=tabuleiro()   
+tabuleiro=tab()  
+
 
 
 
