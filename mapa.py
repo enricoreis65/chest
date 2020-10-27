@@ -38,11 +38,18 @@ class piao():
         global tabuleiro
         tabuleiro.atualiza_tabuleiro(posicao)
     def verifica_mov(self,pos):
-        if int(pos[3])==int(pos[1])+1:
-            return True
-        else:
-            print("esse movimento é ilegal")
-            return False
+        if self.cor=="b":
+            if int(pos[3])==int(pos[1])+1:
+                return True
+            else:
+                print("esse movimento é ilegal")
+                return False
+        if self.cor=="p":
+            if int(pos[3])==int(pos[1])-1:
+                return True
+            else:
+                print("esse movimento é ilegal")
+                return False
 tabuleiro=tab() 
 
 
