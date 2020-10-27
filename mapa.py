@@ -27,7 +27,7 @@ class tab:
                 self.printar_tabuleiro()
         if len(pos)==2:
             self.ta[scaner(pos)[0]][scaner(pos)[1]]=dicionario_pos[pos[0:2]][1]
-            
+        print(dicionario_pos)
 class piao():
     def __init__(self,cor,inicial):
         global dicionario_pos
@@ -38,18 +38,35 @@ class piao():
         global tabuleiro
         tabuleiro.atualiza_tabuleiro(posicao)
     def verifica_mov(self,pos):
-        if self.cor=="b":
-            if int(pos[3])==int(pos[1])+1:
-                return True
-            else:
-                print("esse movimento é ilegal")
-                return False
-        if self.cor=="p":
-            if int(pos[3])==int(pos[1])-1:
-                return True
-            else:
-                print("esse movimento é ilegal")
-                return False
+        print(pos[0:2])
+        if pos[0:2] not in dicionario_pos and dicionario_pos[pos[0:2]]!="  ":
+            print("esse movimento é ilegal")
+            return False
+        else:
+            if self.cor=="b":
+                if int(pos[3])==int(pos[1])+1 and pos[0]==pos[2] :
+                    if pos[2:4] not in dicionario_pos or dicionario_pos[pos[2:4]]=="  " :
+                    
+                        return True
+                    else:
+                        print("esse movimento é ilegal")
+                        return False
+                else:
+                    print("esse movimento é ilegal")
+                    return False
+
+            if self.cor=="p":
+                if int(pos[3])==int(pos[1])-1 and pos[0]==pos[2]:
+                    if pos[2:4] not in dicionario_pos or dicionario_pos[pos[2:4]]=="  " :
+                    
+                        return True
+                    else:
+                        print("esse movimento é ilegal")
+                        return False
+                else:
+                    print("esse movimento é ilegal")
+                    return False
+            
 tabuleiro=tab() 
 
 

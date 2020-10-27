@@ -14,7 +14,7 @@ while game==True:
     if jogar=="s":
         movi=str(input("movimento")).upper()
         identifica=movi[0:2]
-        print(dicionario_pos)
+        
         
         tabuleiro.atualiza_tabuleiro(movi)
     else:
