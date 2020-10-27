@@ -1,0 +1,3 @@
+def scaner(posicao):
+    
+
