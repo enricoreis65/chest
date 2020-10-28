@@ -35,13 +35,14 @@ class tab:
             else:
                 print("esse movimento é ilegal")
                 self.printar_tabuleiro()
-        print(dicionario_pos)
+        
 class piao():
     def __init__(self,cor,inicial):
         global dicionario_pos
         self.cor=cor
         dicionario_pos[inicial]=(self,f"p{self.cor}")
         self.posicionamento(inicial)
+        self.jogada=1
     def posicionamento(self,posicao):
         global tabuleiro
         tabuleiro.atualiza_tabuleiro(posicao)
@@ -53,9 +54,9 @@ class piao():
             return False
         else:
             if self.cor=="b":
-                if int(pos[3])==int(pos[1])+1 and pos[0]==pos[2] :
+                if int(pos[3])<=int(pos[1])+1+self.jogada and pos[0]==pos[2] and int(pos[3])>int(pos[1]):
                     if pos[2:4] not in dicionario_pos or dicionario_pos[pos[2:4]]=="  " :
-                    
+                        self.jogada=0
                         return True
                     else:
                         print("esse movimento é ilegal")
@@ -65,8 +66,9 @@ class piao():
                     return False
 
             if self.cor=="p":
-                if int(pos[3])==int(pos[1])-1 and pos[0]==pos[2]:
+                if int(pos[3])>=int(pos[1])-1-self.jogada and pos[0]==pos[2] and int(pos[3])<int(pos[1]):
                     if pos[2:4] not in dicionario_pos or dicionario_pos[pos[2:4]]=="  " :
+                        self.jogada=0
                     
                         return True
                     else:
