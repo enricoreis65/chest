@@ -45,8 +45,9 @@ class piao():
     def posicionamento(self,posicao):
         global tabuleiro
         tabuleiro.atualiza_tabuleiro(posicao)
+
     def verifica_mov(self,pos):
-        print(pos[0:2])
+        
         if dicionario_pos[pos[0:2]]=="  ":
             print("esse movimento é ilegal")
             return False
